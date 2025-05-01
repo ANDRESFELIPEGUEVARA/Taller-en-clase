@@ -10,6 +10,7 @@ document.getElementById('formLogin').addEventListener('submit', function (e) {
 function buscar(email, password) {
     let message = ''
     let alertType = ''
+    localStorage.removeItem('token')
     fetch("https://reqres.in/api/login", {
         method: "POST",
         headers: {
@@ -26,6 +27,12 @@ function buscar(email, password) {
             message = 'Inicio de sesion exitoso'
             console.log("Ingreso correcto " + response)
             alertBuilder(alertType, message)
+            localStorage.setItem('token', '123456789')
+            setTimeout(()=> {
+                location.href='admin/dashboard.html'
+
+            },1000)
+            
         } else {
             alertType = 'danger'
             message = 'correo o contraseña no encontrados'
