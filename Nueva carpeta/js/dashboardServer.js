@@ -9,9 +9,9 @@ function logout() {
 }
 
 function tokenValidate(){
-    const token=localStorage.getItem('token')
-    if(token !== 'QpwL5tke4Pnpja7X4'){
+    const TOKEN=localStorage.getItem('token')
+    if(TOKEN === null){
         location.href = '../index.html'
     }
-    console.log("autenticado",token)
+    console.log("autenticado",TOKEN)
 }
